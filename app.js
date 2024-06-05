@@ -67,11 +67,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    const buyButtons = document.querySelectorAll('.buy-button');
+const addedToCartModal = document.querySelector('#addedToCartModal');
 
+buyButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Mostrar el modal
+    addedToCartModal.classList.remove('hidden');
+    addedToCartModal.classList.add('transform', 'translate-y-full');
 
-
-
-
-
+    // Ocultar el modal después de 2 segundos
+    setTimeout(function() {
+      addedToCartModal.classList.add('hidden');
+      addedToCartModal.classList.remove('transform', 'translate-y-full');
+    }, 2000);
+  });
+});
     
   });
