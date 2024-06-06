@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
       src: "images/face.png",
       title: "Lorem ipsum<br>dolor sit amet",
       description:
-        "Nunc porttitor tortor metus, nec sagittis<br> lectus accumsan quis. Aenean euismod mollis tempor.",
+        "Nunc porttitor tortor metus,sagittis<br> lectus accumsan quis. Aenean euismod mollis tempor.",
     },
     {
       src: "images/girl-3.png",
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       src: "images/girl-1.png",
       title: "Third title<br> another please",
       description:
-        "This is the third description. Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
+        "This is the third description. Lorem ipsum dolor sit amet, <br>consectetur adipiscing.",
     },
   ];
 
