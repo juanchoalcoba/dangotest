@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       element.style.transition = "opacity 1s";
       element.style.opacity = 1;
-    }, 1000); // Delay for transition to start smoothly
+    }, 1000);
   }
 
   function updateContent(index) {
@@ -46,17 +46,15 @@ document.addEventListener("DOMContentLoaded", function () {
       imageElement.src = src;
       titleElement.innerHTML = title;
       descriptionElement.innerHTML = description;
-    }, 200); // Match transition duration
+    }, 200); 
 
-    // Reset opacity after content change
     setTimeout(() => {
       imageElement.style.opacity = 1;
       titleElement.style.opacity = 1;
       descriptionElement.style.opacity = 1;
-    }, 200); // Ensure opacity is reset after transition
+    }, 200);
   }
 
-  // Initial content update
   updateContent(currentIndex);
 
   prevButton.addEventListener("click", () => {
@@ -74,11 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   buyButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      // Mostrar el modal
       addedToCartModal.classList.remove("hidden");
       addedToCartModal.classList.add("transform", "translate-y-full");
 
-      // Ocultar el modal después de 2 segundos
       setTimeout(function () {
         addedToCartModal.classList.add("hidden");
         addedToCartModal.classList.remove("transform", "translate-y-full");
@@ -108,13 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const li = document.createElement('li');
       li.textContent = `${item.product} - $${item.price.toFixed(2)}`;
 
-      // Agregar botón de eliminar para cada ítem
+      
       const deleteButton = document.createElement('button');
       deleteButton.textContent = 'Eliminar';
       deleteButton.classList.add('ml-12', 'text-red-600', 'hover:text-red-800', 'font-bold', 'focus:outline-none');
       deleteButton.addEventListener('click', () => {
-        cart.splice(index, 1); // Elimina el ítem del carrito
-        updateCart(); // Actualiza la vista del carrito
+        cart.splice(index, 1); 
+        updateCart(); 
       });
 
       li.appendChild(deleteButton);
@@ -155,11 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 let currentPage = 1;
-const itemsPerPage = 8; // Número de artículos por página
+const itemsPerPage = 8; 
 const totalItems = document.querySelectorAll('.card').length;
 const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-// Función para mostrar los artículos correspondientes a la página actual
 function showItems() {
   const cards = document.querySelectorAll('.card');
   cards.forEach((card, index) => {
@@ -171,7 +166,6 @@ function showItems() {
   });
 }
 
-// Mostrar la primera página inicialmente
 showItems();
 
 // Botón de página siguiente
@@ -179,9 +173,7 @@ document.getElementById('nextPageButton').addEventListener('click', () => {
   if (currentPage < totalPages) {
     currentPage++;
     showItems();
-    // Ocultar el primer conjunto de artículos
     document.querySelector('.container > .grid').style.display = 'none';
-    // Mostrar el segundo conjunto de artículos
     document.querySelector('.container > .hidden').style.display = 'grid';
   }
 });
@@ -191,9 +183,16 @@ document.getElementById('prevPageButton').addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
     showItems();
-    // Ocultar el segundo conjunto de artículos
     document.querySelector('.container > .hidden').style.display = 'none';
-    // Mostrar el primer conjunto de artículos
     document.querySelector('.container > .grid').style.display = 'grid';
   }
+});
+
+
+document.getElementById('menu-toggle').addEventListener('click', function () {
+  document.getElementById('mobile-menu').classList.remove('hidden');
+});
+
+document.getElementById('close-menu').addEventListener('click', function () {
+  document.getElementById('mobile-menu').classList.add('hidden');
 });
