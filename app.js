@@ -168,7 +168,6 @@ function showItems() {
 
 showItems();
 
-// Botón de página siguiente
 document.getElementById('nextPageButton').addEventListener('click', () => {
   if (currentPage < totalPages) {
     currentPage++;
@@ -178,7 +177,6 @@ document.getElementById('nextPageButton').addEventListener('click', () => {
   }
 });
 
-// Botón de página anterior
 document.getElementById('prevPageButton').addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
