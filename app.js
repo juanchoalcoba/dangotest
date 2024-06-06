@@ -86,3 +86,69 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cartIcon = document.getElementById('cart-icon');
+  const cartIconMobile = document.getElementById("cart-icon-mobile");
+  const cartModal = document.getElementById('cart-modal');
+  const closeCartBtn = document.getElementById('close-cart');
+  const cartItemsContainer = document.getElementById('cart-items');
+  const cartTotal = document.getElementById('cart-total');
+  const buyButtons = document.querySelectorAll('.buy-button');
+
+  let cart = [];
+
+  const updateCart = () => {
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.textContent = `${item.product} - $${item.price.toFixed(2)}`;
+
+      // Agregar botón de eliminar para cada ítem
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Eliminar';
+      deleteButton.classList.add('ml-12', 'text-red-600', 'hover:text-red-800', 'font-bold', 'focus:outline-none');
+      deleteButton.addEventListener('click', () => {
+        cart.splice(index, 1); // Elimina el ítem del carrito
+        updateCart(); // Actualiza la vista del carrito
+      });
+
+      li.appendChild(deleteButton);
+      cartItemsContainer.appendChild(li);
+      total += item.price;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+  };
+
+  buyButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const product = e.target.dataset.product;
+      const price = parseFloat(e.target.previousElementSibling.textContent.replace('$', ''));
+      cart.push({ product, price });
+      updateCart();
+    });
+  });
+
+  cartIcon.addEventListener('click', () => {
+    cartModal.style.display = 'flex';
+  });
+
+  closeCartBtn.addEventListener('click', () => {
+    cartModal.style.display = 'none';
+  });
+
+  cartIconMobile.addEventListener('click', () => {
+    cartModal.style.display = 'flex';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === cartModal) {
+      cartModal.style.display = 'none';
+    }
+  });
+});
