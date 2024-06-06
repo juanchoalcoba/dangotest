@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
     {
-      src: "face.png",
+      src: "images/face.png",
       title: "Lorem ipsum<br>dolor sit amet",
       description:
         "Nunc porttitor tortor metus, nec sagittis<br> lectus accumsan quis. Aenean euismod mollis tempor.",
     },
     {
-      src: "girl-3.png",
+      src: "images/girl-3.png",
       title: "Another title<br>mood fashion",
       description:
         "Another description here. Lorem ipsum dolor, consectetur<br> adipiscing elit.",
     },
     {
-      src: "girl-1.png",
+      src: "images/girl-1.png",
       title: "Third title<br> another please",
       description:
         "This is the third description. Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.",
