@@ -71,30 +71,31 @@
 
 
     <menu class="flex flex-col items-center justify-center min-h-screen p-4 md:p-12">
+      
       <div class="flex flex-col-reverse md:flex-row justify-between items-center mb-12 w-full max-w-screen-lg">
         <div class="flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-0">
           <h1 id="title" class="text-3xl md:text-5xl lg:text-7xl mb-8 text-[#7AA65A]">
-            Lorem ipsum <br />
-            dolor sit amet
           </h1>
           <p id="description" class="text-[#7AA65A] text-lg md:text-xl mb-10">
-            Nunc porttitor tortor metus, nec sagittis lectus accumsan quis. <br>
-            Aenean euismod mollis tempor.
           </p>
     
           <div class="flex flex-col lg:flex-row justify-center md:pr-8 lg:justify-start space-y-4 lg:space-y-0 lg:space-x-4 mb-8 w-full lg:w-auto">
-            <button class="px-8 py-3 text-lg lg:text-xl bg-[#7AA65A] text-white rounded-xl font-bold w-full lg:w-auto">SHOP NOW <span class="ml-4 lg:ml-8 text-2xl">&gt;</span></button>
-            <button class="px-8 py-3 text-lg lg:text-xl text-[#7AA65A] border-[#7AA65A] border-2 rounded-xl w-full lg:w-auto">TAKE THE QUIZ <span class="ml-4 lg:ml-8 text-2xl">&gt;</span></button>
+            <button class="px-8 py-3 text-lg lg:text-xl bg-[#7AA65A] text-white rounded-xl font-bold w-full lg:w-auto transition transform hover:bg-[#6b8e4d] hover:-translate-y-1">
+              SHOP NOW <span class="ml-4 lg:ml-8 text-2xl">&gt;</span>
+            </button>
+            <button class="px-8 py-3 text-lg lg:text-xl text-[#7AA65A] border-[#7AA65A] border-2 rounded-xl w-full lg:w-auto transition transform hover:bg-[#e6f1e3] hover:-translate-y-1 hover:font-bold">
+              TAKE THE QUIZ <span class="ml-4 lg:ml-8 text-2xl">&gt;</span>
+            </button>
           </div>
     
           <div class="flex justify-center md:justify-start space-x-4 mb-8">
-            <button id="prevButton" class="px-8 py-2 font-bold text-2xl md:text-3xl text-[#7AA65A] border-[#7AA65A] border-2 rounded-full">&lt;</button>
-            <button id="nextButton" class="px-8 py-2 font-bold text-2xl md:text-3xl bg-[#7AA65A] text-white rounded-full">&gt;</button>
+            <button id="prevButton" class="px-8 py-2 font-bold text-2xl md:text-3xl text-[#7AA65A] border-[#7AA65A] border-2 rounded-full transition transform hover:bg-[#e6f1e3] hover:-translate-y-1">&lt;</button>
+            <button id="nextButton" class="px-8 py-2 font-bold text-2xl md:text-3xl bg-[#7AA65A] text-white rounded-full transition transform hover:bg-[#6b8e4d] hover:-translate-y-1">&gt;</button>
           </div>
         </div>
     
         <div class="w-full md:w-96 h-64 md:h-[500px] overflow-hidden transition-all duration-1000 transform hover:rounded-full">
-          <img id="image" class="object-cover rounded-xl w-full h-full" src="face.png" alt="Imagen" />
+          <img id="image" class="object-cover rounded-xl w-full h-full" src="" alt="Imagen" />
         </div>
       </div>
     </menu>
@@ -181,6 +182,15 @@
         </div>
     </div>
 
+
+    <div id="cartModal" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+      <div class="bg-white p-8 rounded-lg max-w-lg">
+        <h2 class="text-2xl font-bold mb-4">Carrito de Compras</h2>
+        <ul id="cartList" class="mb-4"></ul>
+        <p class="text-xl font-bold mb-4">Total: <span id="cartTotal">$0.00</span></p>
+        <button id="checkoutButton" class="bg-[#7AA65A] rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]">Finalizar Compra</button>
+      </div>
+    </div>
 
 
 
