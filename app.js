@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       src: "girl-3.png",
-      title: "Another title<br>mood fasion",
+      title: "Another title<br>mood fashion",
       description:
         "Another description here. Lorem ipsum dolor, consectetur<br> adipiscing elit.",
     },
@@ -151,4 +151,49 @@ document.addEventListener('DOMContentLoaded', () => {
       cartModal.style.display = 'none';
     }
   });
+});
+
+
+let currentPage = 1;
+const itemsPerPage = 8; // Número de artículos por página
+const totalItems = document.querySelectorAll('.card').length;
+const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+// Función para mostrar los artículos correspondientes a la página actual
+function showItems() {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card, index) => {
+    if (index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Mostrar la primera página inicialmente
+showItems();
+
+// Botón de página siguiente
+document.getElementById('nextPageButton').addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    showItems();
+    // Ocultar el primer conjunto de artículos
+    document.querySelector('.container > .grid').style.display = 'none';
+    // Mostrar el segundo conjunto de artículos
+    document.querySelector('.container > .hidden').style.display = 'grid';
+  }
+});
+
+// Botón de página anterior
+document.getElementById('prevPageButton').addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    showItems();
+    // Ocultar el segundo conjunto de artículos
+    document.querySelector('.container > .hidden').style.display = 'none';
+    // Mostrar el primer conjunto de artículos
+    document.querySelector('.container > .grid').style.display = 'grid';
+  }
 });

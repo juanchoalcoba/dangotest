@@ -166,9 +166,71 @@
             </div>
           </article> 
         </div>
-        <div class="flex justify-center items-center  space-x-4 mt-4">
-           <button class="px-6 py-2 font-bold text-2xl md:text-3xl text-[#7AA65A] border-[#7AA65A] border-2 rounded-full">&lt;</button>
-           <button class="px-6 py-2 font-bold text-2xl md:text-3xl bg-[#7AA65A] text-white rounded-full">&gt;</button>
+
+        <div class="hidden grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <article class="card shadow-2xl rounded-xl">
+            <img src="girl-4.png" alt="Nombre del producto" class="rounded-md w-full p-4 object-fill">
+            <div class="p-4 flex flex-col justify-center items-center md:flex-row">
+              <p class="text-xl font-bold text-gray-800 mb-4">$145.67</p>
+              <button class="buy-button inline-block bg-[#7AA65A] md:ml-4 rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]" data-product="Girl 1">BUY NOW</button>
+            </div>
+          </article>
+          
+          <article class="card shadow-2xl rounded-xl">
+            <img src="girl-3.png" alt="Nombre del producto" class="rounded-md w-full p-4 object-fill">
+            <div class="p-4 flex flex-col justify-around items-center md:flex-row">
+              <p class="text-xl font-bold text-gray-800 mb-4">$323.98</p>
+              <button class="buy-button inline-block bg-[#7AA65A] md:ml-4 rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]" data-product="Girl 2">BUY NOW</button>
+            </div>
+          </article>
+          
+          <article class="card shadow-2xl rounded-xl">
+            <img src="girl-2.png" alt="Nombre del producto" class="rounded-md w-full p-4 object-fill">
+            <div class="p-4 flex flex-col justify-around items-center md:flex-row">
+              <p class="text-xl font-bold text-gray-800 mb-4">$234.56</p>
+              <button class="buy-button inline-block bg-[#7AA65A] md:ml-4 rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]" data-product="Girl 3">BUY NOW</button>
+            </div>
+          </article>
+          
+          <article class="card shadow-2xl rounded-xl">
+            <img src="girl-1.png" alt="Nombre del producto" class="rounded-md w-full p-4 object-fill">
+            <div class="p-4 flex flex-col justify-around items-center md:flex-row">
+              <p class="text-xl font-bold text-gray-800 mb-4">$276.45</p>
+              <button class="buy-button inline-block bg-[#7AA65A] md:ml-4 rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]" data-product="Girl 4">BUY NOW</button>
+            </div>
+          </article>
+          
+          <article class="card shadow-2xl rounded-xl">
+            <img src="girl-3.png" alt="Nombre del producto" class="rounded-md w-full p-4 object-fill">
+            <div class="p-4 flex flex-col justify-around items-center md:flex-row">
+              <p class="text-xl font-bold text-gray-800 mb-4">$319.65</p>
+              <button class="buy-button inline-block bg-[#7AA65A] md:ml-4 rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]" data-product="Girl 5">BUY NOW</button>
+            </div>
+          </article>
+          
+          <article class="card shadow-2xl rounded-xl">
+            <img src="girl-2.png" alt="Nombre del producto" class="rounded-md w-full p-4 object-fill">
+            <div class="p-4 flex flex-col justify-around items-center md:flex-row">
+              <p class="text-xl font-bold text-gray-800 mb-4">$129.45</p>
+              <button class="buy-button inline-block bg-[#7AA65A] md:ml-4 rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]" data-product="Girl 6">BUY NOW</button>
+            </div>
+          </article>
+          
+          <article class="card shadow-2xl rounded-xl">
+            <img src="girl-4.png" alt="Nombre del producto" class="rounded-md w-full p-4 object-fill">
+            <div class="p-4 flex flex-col justify-around items-center md:flex-row">
+              <p class="text-xl font-bold text-gray-800 mb-4">$346.2</p>
+              <button class="buy-button inline-block bg-[#7AA65A] md:ml-4 rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]" data-product="Girl 7">BUY NOW</button>
+            </div>
+          </article>
+        </div>
+
+        
+
+        <div class="flex justify-center items-center space-x-4 mt-4">
+          <button id="prevPageButton" class="px-6 py-2 font-bold text-2xl md:text-3xl text-[#7AA65A] border-[#7AA65A] border-2 rounded-full transition duration-300 ease-in-out hover:text-white transform hover:bg-[#5C8744] hover:-translate-y-1">&lt;</button>
+          <button id="nextPageButton" class="px-6 py-2 font-bold text-2xl md:text-3xl bg-[#7AA65A] text-white rounded-full transition duration-300 ease-in-out transform hover:bg-[#5C8744] hover:-translate-y-1">&gt;</button>
         </div>
 
         <div id="addedToCartModal" class="fixed top-0 right-0 border-[#7AA65A] border-2 justify-center items-centerborder-2 bg-white p-2 md:px-12 rounded-lg shadow-md hidden transform translate-y-full transition-transform duration-300 ease">
@@ -179,16 +241,7 @@
     </div>
 
 
-    <div id="cartModal" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
-      <div class="bg-white p-8 rounded-lg max-w-lg">
-        <h2 class="text-2xl font-bold mb-4">Carrito de Compras</h2>
-        <ul id="cartList" class="mb-4"></ul>
-        <p class="text-xl font-bold mb-4">Total: <span id="cartTotal">$0.00</span></p>
-        <button id="checkoutButton" class="bg-[#7AA65A] rounded-full text-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-[#5C8744]">Finalizar Compra</button>
-      </div>
-    </div>
-
-    <div id="cart-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden justify-center items-center">
+        <div id="cart-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden justify-center items-center">
       <div class="bg-white p-6 rounded-lg w-80">
         <h2 class="text-xl text-center font-bold mb-4">Detalles de Carrito</h2>
         <ul id="cart-items" class="mb-4">
