@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
       {
         src: 'face.png',
         title: 'Lorem ipsum<br>dolor sit amet',
-        description: 'Nunc porttitor tortor metus, nec sagittis lectus accumsan quis.<br> Aenean euismod mollis tempor.'
+        description: 'Nunc porttitor tortor metus, nec sagittis<br> lectus accumsan quis. Aenean euismod mollis tempor.'
       },
       {
         src: 'girl-3.png',
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       {
         src: 'girl-1.png',
-        title: 'Third title, another please',
+        title: 'Third title<br> another please',
         description: 'This is the third description. Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit.'
       }
     ];
