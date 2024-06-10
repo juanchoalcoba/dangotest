@@ -1,72 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const images = [
-    {
-      src: "images/face.png",
-      title: "Lorem ipsum<br>dolor sit amet",
-      description:
-        "Nunc porttitor tortor metus,sagittis<br> lectus accumsan quis. Aenean euismod mollis tempor.",
-    },
-    {
-      src: "images/girl-3.png",
-      title: "Another title<br>mood fashion",
-      description:
-        "Another description here. Lorem ipsum dolor, consectetur<br> adipiscing elit.",
-    },
-    {
-      src: "images/girl-1.png",
-      title: "Third title<br> another please",
-      description:
-        "This is the third description. Lorem ipsum dolor sit amet, <br>consectetur adipiscing.",
-    },
-  ];
-
-  let currentIndex = 0;
-
-  const imageElement = document.getElementById("image");
-  const titleElement = document.getElementById("title");
-  const descriptionElement = document.getElementById("description");
-  const prevButton = document.getElementById("prevButton");
-  const nextButton = document.getElementById("nextButton");
-
-  function fadeOut(element) {
-    element.style.opacity = 0;
-    setTimeout(() => {
-      element.style.transition = "opacity 1s";
-      element.style.opacity = 1;
-    }, 1000);
-  }
-
-  function updateContent(index) {
-    fadeOut(imageElement);
-    fadeOut(titleElement);
-    fadeOut(descriptionElement);
-
-    setTimeout(() => {
-      const { src, title, description } = images[index];
-      imageElement.src = src;
-      titleElement.innerHTML = title;
-      descriptionElement.innerHTML = description;
-    }, 200); 
-
-    setTimeout(() => {
-      imageElement.style.opacity = 1;
-      titleElement.style.opacity = 1;
-      descriptionElement.style.opacity = 1;
-    }, 200);
-  }
-
-  updateContent(currentIndex);
-
-  prevButton.addEventListener("click", () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
-    updateContent(currentIndex);
-  });
-
-  nextButton.addEventListener("click", () => {
-    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
-    updateContent(currentIndex);
-  });
-
+  
   const buyButtons = document.querySelectorAll(".buy-button");
   const addedToCartModal = document.querySelector("#addedToCartModal");
 
@@ -150,42 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-let currentPage = 1;
-const itemsPerPage = 8; 
-const totalItems = document.querySelectorAll('.card').length;
-const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-function showItems() {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach((card, index) => {
-    if (index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
-
-showItems();
-
-document.getElementById('nextPageButton').addEventListener('click', () => {
-  if (currentPage < totalPages) {
-    currentPage++;
-    showItems();
-    document.querySelector('.container > .grid').style.display = 'none';
-    document.querySelector('.container > .hidden').style.display = 'grid';
-  }
-});
-
-document.getElementById('prevPageButton').addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
-    showItems();
-    document.querySelector('.container > .hidden').style.display = 'none';
-    document.querySelector('.container > .grid').style.display = 'grid';
-  }
-});
-
 
 document.getElementById('menu-toggle').addEventListener('click', function () {
   document.getElementById('mobile-menu').classList.remove('hidden');
@@ -194,3 +91,31 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
 document.getElementById('close-menu').addEventListener('click', function () {
   document.getElementById('mobile-menu').classList.add('hidden');
 });
+
+
+
+
+
+
+
+
+const currentSection = document.getElementById('currentSection');
+    const hiddenSection = document.getElementById('hiddenSection');
+    const nextPageButton = document.getElementById('nextPageButton');
+    const prevPageButton = document.getElementById('prevPageButton');
+
+    nextPageButton.addEventListener('click', function() {
+      gsap.to(currentSection, { opacity: 0, y: -50, duration: 0.5, onComplete: () => {
+          currentSection.classList.add('hidden');
+          hiddenSection.classList.remove('hidden');
+          gsap.fromTo(hiddenSection, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5 });
+      }});
+    });
+
+    prevPageButton.addEventListener('click', function() {
+      gsap.to(hiddenSection, { opacity: 0, y: -50, duration: 0.5, onComplete: () => {
+          hiddenSection.classList.add('hidden');
+          currentSection.classList.remove('hidden');
+          gsap.fromTo(currentSection, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5 });
+      }});
+    });
